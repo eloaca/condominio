@@ -1,5 +1,6 @@
 package br.com.eloaca.condominio.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import br.com.eloaca.condominio.entity.Visitante;
 import br.com.eloaca.condominio.repository.VisitanteRepository;
@@ -15,8 +16,10 @@ public class VisitanteService {
 
     private final VisitanteRepository repository;
 
-    public Visitante salvarVisitante(@NonNull Visitante Visitante){
-        return repository.save(Visitante);
+    public Visitante salvarVisitante(@NonNull Visitante visitante){
+        visitante.setEntrada(LocalDateTime.now());
+        visitante.setSaida(LocalDateTime.now());
+        return repository.save(visitante);
     }
 
     public Optional<Visitante> buscarVisitante(@NonNull Long id){

@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface VisitanteRepository extends JpaRepository<Visitante, Long> {
 
-    @Query("select v from visitante v where v.nome like ?1")
+    @Query("select v from visitante v where v.nome like %?1%")
     List<Visitante> findByNomeLike(@NonNull String nome);
 }

@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MoradorRepository extends JpaRepository<Morador, Long> {
 
-    @Query("select m from morador m where m.nome like ?1")
+    @Query("select m from morador m where m.nome like %?1%")
     List<Morador> findByNomeLike(@NonNull String nome);
 }

@@ -1,5 +1,6 @@
 package br.com.eloaca.condominio.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,9 @@ import javax.persistence.OneToMany;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Morador {
+public class Morador implements Serializable  {
+
+    private static final long serialVersionUID = 1050677815179965623L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

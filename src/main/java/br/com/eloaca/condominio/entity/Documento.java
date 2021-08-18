@@ -12,13 +12,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import java.io.Serializable;
 
 @Entity(name = "documento")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Documento {
+public class Documento implements Serializable {
+
+    private static final long serialVersionUID = 429760195278141490L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

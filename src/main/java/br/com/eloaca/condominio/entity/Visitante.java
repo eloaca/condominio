@@ -10,15 +10,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
+
 
 @Entity(name = "visitante")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Visitante {
+public class Visitante implements Serializable {
+
+    private static final long serialVersionUID = 1410097744521802167L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -29,10 +29,4 @@ public class Apartamento implements Serializable {
     private String bloco;
 
     private String numero;
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Morador> morador;
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<Visitante> visitante;
 }

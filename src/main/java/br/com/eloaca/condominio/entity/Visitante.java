@@ -10,8 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity(name = "visitante")
@@ -32,6 +35,9 @@ public class Visitante implements Serializable {
 
     private LocalDateTime saida;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Documento documento;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Documento> documento;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Apartamento> apartamento;
 }

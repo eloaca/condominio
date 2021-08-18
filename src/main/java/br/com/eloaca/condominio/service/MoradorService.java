@@ -1,6 +1,6 @@
 package br.com.eloaca.condominio.service;
 
-import antlr.collections.List;
+import java.util.List;
 import br.com.eloaca.condominio.entity.Morador;
 import br.com.eloaca.condominio.repository.MoradorRepository;
 import lombok.AllArgsConstructor;
@@ -27,11 +27,11 @@ public class MoradorService {
         repository.deleteById(id);
     }
 
-    public List buscarTodosMoradores(){
-        return (List) repository.findAll();
+    public List<Morador> buscarTodosMoradores(){
+        return repository.findAll();
     }
 
-    public List buscarMoradoresPorNome(@NonNull String nome){
+    public List<Morador> buscarMoradoresPorNome(@NonNull String nome){
         return repository.findByNomeLike(nome);
     }
 }

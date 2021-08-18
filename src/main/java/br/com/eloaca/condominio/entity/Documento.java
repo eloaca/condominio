@@ -30,10 +30,4 @@ public class Documento implements Serializable {
     private TipoDocumento tipoDocumento;
 
     private String numero;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Morador morador;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Visitante visitante;
 }

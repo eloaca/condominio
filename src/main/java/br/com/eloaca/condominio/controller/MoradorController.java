@@ -1,11 +1,10 @@
 package br.com.eloaca.condominio.controller;
 
-import antlr.collections.List;
+import java.util.List;
 import br.com.eloaca.condominio.entity.Morador;
 import br.com.eloaca.condominio.service.MoradorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,12 +41,12 @@ public class MoradorController {
     }
 
     @GetMapping("/buscarTodos")
-    public List buscarTodos(){
+    public List<Morador> buscarTodos(){
         return service.buscarTodosMoradores();
     }
 
     @GetMapping("/buscarNome/{nome}")
-    public List buscarNome(@PathVariable String nome){
+    public List<Morador> buscarNome(@PathVariable String nome){
         return service.buscarMoradoresPorNome(nome);
     }
 }

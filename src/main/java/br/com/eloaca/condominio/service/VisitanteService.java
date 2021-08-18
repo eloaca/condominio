@@ -1,6 +1,6 @@
 package br.com.eloaca.condominio.service;
 
-import antlr.collections.List;
+import java.util.List;
 import br.com.eloaca.condominio.entity.Visitante;
 import br.com.eloaca.condominio.repository.VisitanteRepository;
 import lombok.AllArgsConstructor;
@@ -27,11 +27,11 @@ public class VisitanteService {
         repository.deleteById(id);
     }
 
-    public List buscarTodosVisitantes(){
-        return (List) repository.findAll();
+    public List<Visitante> buscarTodosVisitantes(){
+        return repository.findAll();
     }
 
-    public List buscarVisitantePeloNome(@NonNull String nome){
+    public List<Visitante> buscarVisitantePeloNome(@NonNull String nome){
         return repository.findByNomeLike(nome);
     }
 }

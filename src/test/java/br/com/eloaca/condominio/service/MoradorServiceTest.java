@@ -81,13 +81,13 @@ public class MoradorServiceTest {
         return new Documento(1L, TipoDocumento.RG, "253369630");
     }
 
-    private Apartamento criarPpartamentoMock() {
+    private Apartamento criarApartamentoMock() {
         return new Apartamento(2L, "D", "112");
     }
 
     private Morador criarMoradorMock() {
         List<Documento> documentosMock = new ArrayList<Documento>();
         documentosMock.add(criarDocumentoMock());
-        return new Morador(3L, "Eloá Augusto", documentosMock, criarPpartamentoMock());
+        return new Morador(3L, "Eloá Augusto", documentosMock, criarApartamentoMock());
     }
 }

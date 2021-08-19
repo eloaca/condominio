@@ -1,6 +1,7 @@
 package br.com.eloaca.condominio.service;
 
 import br.com.eloaca.condominio.entity.Apartamento;
+import br.com.eloaca.condominio.entity.Condominio;
 import br.com.eloaca.condominio.entity.Documento;
 import br.com.eloaca.condominio.entity.Morador;
 import br.com.eloaca.condominio.entity.TipoDocumento;
@@ -82,12 +83,16 @@ public class MoradorServiceTest {
     }
 
     private Apartamento criarApartamentoMock() {
-        return new Apartamento(2L, "D", "112");
+        return new Apartamento(2L, "D", "112", criarCondominioMock());
     }
 
     private Morador criarMoradorMock() {
-        List<Documento> documentosMock = new ArrayList<Documento>();
+        List<Documento> documentosMock = new ArrayList<>();
         documentosMock.add(criarDocumentoMock());
         return new Morador(3L, "Eloá Augusto", documentosMock, criarApartamentoMock());
+    }
+
+    private Condominio criarCondominioMock() {
+        return new Condominio(4L, "Vila Souza Campos");
     }
 }

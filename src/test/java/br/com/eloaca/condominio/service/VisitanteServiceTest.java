@@ -1,12 +1,10 @@
 package br.com.eloaca.condominio.service;
 
 import br.com.eloaca.condominio.entity.Apartamento;
+import br.com.eloaca.condominio.entity.Condominio;
 import br.com.eloaca.condominio.entity.Documento;
 import br.com.eloaca.condominio.entity.Visitante;
 import br.com.eloaca.condominio.entity.TipoDocumento;
-import br.com.eloaca.condominio.entity.Visitante;
-import br.com.eloaca.condominio.entity.Visitante;
-import org.easymock.EasyMock;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -64,9 +62,9 @@ public class VisitanteServiceTest {
         mocks.add(mock);
         expect(service.buscarTodosVisitantes()).andReturn(mocks);
         replay(service);
-        List<Visitante> Visitantees = service.buscarTodosVisitantes();
+        List<Visitante> visitantes = service.buscarTodosVisitantes();
         verify(service);
-        Assert.assertEquals(Visitantees, mocks);
+        Assert.assertEquals(visitantes, mocks);
     }
 
     @Test
@@ -76,9 +74,9 @@ public class VisitanteServiceTest {
         mocks.add(mock);
         expect(service.buscarVisitantePeloNome("Eloá")).andReturn(mocks);
         replay(service);
-        List<Visitante> Visitantees = service.buscarVisitantePeloNome("Eloá");
+        List<Visitante> visitantes = service.buscarVisitantePeloNome("Eloá");
         verify(service);
-        Assert.assertEquals(Visitantees, mocks);
+        Assert.assertEquals(visitantes, mocks);
     }
 
     private Documento criarDocumentoMock() {
@@ -86,7 +84,7 @@ public class VisitanteServiceTest {
     }
 
     private Apartamento criarApartamentoMock() {
-        return new Apartamento(2L, "D", "112");
+        return new Apartamento(2L, "D", "112", criarCondominioMock());
     }
 
     private Visitante criarVisitanteMock() {
@@ -95,5 +93,9 @@ public class VisitanteServiceTest {
         List<Apartamento> apartamentosMock = new ArrayList<>();
         apartamentosMock.add(criarApartamentoMock());
         return new Visitante(3L, "Elida Augusto", LocalDateTime.now(), LocalDateTime.now(), documentosMock, apartamentosMock);
+    }
+
+    private Condominio criarCondominioMock() {
+        return new Condominio(4L, "Vila Souza Campos");
     }
 }

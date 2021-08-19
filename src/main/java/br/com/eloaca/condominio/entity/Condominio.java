@@ -8,26 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
 import java.io.Serializable;
 
-@Entity(name = "apartamento")
+
+@Entity(name = "condominio")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Apartamento implements Serializable {
-
-    private static final long serialVersionUID = -6831091463889068292L;
+public class Condominio implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String bloco;
-
-    private String numero;
-
-    @OneToOne
-    private Condominio condominio;
+    private String nome;
 }

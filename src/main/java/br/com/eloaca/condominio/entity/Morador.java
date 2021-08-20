@@ -7,13 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity(name = "morador")
 @AllArgsConstructor
@@ -32,6 +26,7 @@ public class Morador implements Serializable  {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Documento> documento;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(unique = true)
     private Apartamento apartamento;
 }

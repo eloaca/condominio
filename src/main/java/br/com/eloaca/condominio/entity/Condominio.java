@@ -17,6 +17,8 @@ import java.io.Serializable;
 @Data
 public class Condominio implements Serializable{
 
+    private static final long serialVersionUID = 5446687657518100579L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

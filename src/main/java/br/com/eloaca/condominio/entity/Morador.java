@@ -25,15 +25,15 @@ public class Morador implements Serializable  {
     private static final long serialVersionUID = 1050677815179965623L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Documento> documento;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(unique = true)
     private Apartamento apartamento;
 }

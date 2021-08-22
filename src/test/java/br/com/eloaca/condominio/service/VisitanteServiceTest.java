@@ -84,7 +84,7 @@ public class VisitanteServiceTest {
     }
 
     private Apartamento criarApartamentoMock() {
-        return new Apartamento(2L, "D", "112", criarCondominioMock());
+        return new Apartamento(2L, "D", "112");
     }
 
     private Visitante criarVisitanteMock() {
@@ -96,6 +96,8 @@ public class VisitanteServiceTest {
     }
 
     private Condominio criarCondominioMock() {
-        return new Condominio(4L, "Vila Souza Campos");
+        List<Apartamento> apartamentosMock = new ArrayList<>();
+        apartamentosMock.add(criarApartamentoMock());
+        return new Condominio(4L, "Vila Souza Campos", apartamentosMock);
     }
 }

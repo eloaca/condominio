@@ -1,12 +1,12 @@
 package br.com.eloaca.condominio.service;
 
-import antlr.collections.List;
 import br.com.eloaca.condominio.entity.Documento;
 import br.com.eloaca.condominio.repository.DocumentoRepository;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -32,7 +32,7 @@ public class DocumentoService {
         return (List) repository.findAll();
     }
 
-    public Optional<Documento> buscarPeloNumero(@NonNull String numero){
+    public List<Documento> buscarPeloNumero(@NonNull String numero){
         return repository.findByNumero(numero);
     }
 }

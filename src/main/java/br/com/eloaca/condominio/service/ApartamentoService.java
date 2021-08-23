@@ -1,6 +1,5 @@
 package br.com.eloaca.condominio.service;
 
-import antlr.collections.List;
 import br.com.eloaca.condominio.entity.Apartamento;
 import br.com.eloaca.condominio.repository.ApartamentoRepository;
 import lombok.AllArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.NonNull;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;
+import java.util.List;
 
 @Component
 @AllArgsConstructor
@@ -28,10 +28,10 @@ public class ApartamentoService {
     }
 
     public List buscarTodosApartamento(){
-        return (List) repository.findAll();
+        return repository.findAll();
     }
 
-    public Optional<Apartamento> buscarPeloBlocoENumero(@NonNull String bloco, @NonNull String numero){
+    public List buscarPeloBlocoENumero(@NonNull String bloco, @NonNull String numero){
         return repository.findByBlocoAndNumero(bloco, numero);
     }
 }

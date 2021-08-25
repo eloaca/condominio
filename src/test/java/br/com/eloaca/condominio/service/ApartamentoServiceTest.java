@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.easymock.EasyMock.*;
 
@@ -25,7 +24,7 @@ public class ApartamentoServiceTest {
         var mock = criarApartamentoMock();
         expect(service.salvarApartamento(mock)).andReturn(mock);
         replay(service);
-        Apartamento apartamento = service.salvarApartamento(mock);
+        var apartamento = service.salvarApartamento(mock);
         verify(service);
         Assert.assertEquals(apartamento, mock);
     }
@@ -42,11 +41,11 @@ public class ApartamentoServiceTest {
 
     @Test
     public void testExcluirApartamento() {
-        Apartamento mock = criarApartamentoMock();
+        var mock = criarApartamentoMock();
         service.excluirApartamento(mock.getId());
         expect(service.buscarApartamento(mock.getId())).andReturn(null);
         replay(service);
-        Optional<Apartamento> apartamento = service.buscarApartamento(1L);
+        var apartamento = service.buscarApartamento(1L);
         Assert.assertNull(apartamento);
     }
 
@@ -75,7 +74,7 @@ public class ApartamentoServiceTest {
     }
 
     private List criarApartamentosMock() {
-        List<Apartamento> apartamentosMock = new ArrayList<>();
+        var apartamentosMock = new ArrayList<Apartamento>();
         apartamentosMock.add(criarApartamentoMock());
         return apartamentosMock;
     }

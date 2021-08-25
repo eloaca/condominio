@@ -21,7 +21,7 @@ public class Documento implements Serializable {
     private static final long serialVersionUID = 429760195278141490L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)

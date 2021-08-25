@@ -25,8 +25,8 @@ public class VisitanteController {
 
     @PostMapping("/novo")
     @ResponseStatus(HttpStatus.CREATED)
-    public Visitante novo(@RequestBody Visitante Visitante){
-        return service.salvarVisitante(Visitante);
+    public Visitante novo(@RequestBody Visitante visitante){
+        return service.salvarVisitante(visitante);
     }
 
     @GetMapping("/buscarID/{id}")

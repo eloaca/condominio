@@ -6,11 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface DocumentoRepository extends JpaRepository<Documento, Long> {
 
     @Query("select d from documento d where d.numero = ?1")
-    Optional<Documento> findByNumero(@Nullable String numero);
+    List<Documento> findByNumero(@Nullable String numero);
 }

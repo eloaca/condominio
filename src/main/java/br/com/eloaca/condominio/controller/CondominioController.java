@@ -1,7 +1,8 @@
 package br.com.eloaca.condominio.controller;
 
 import br.com.eloaca.condominio.entity.Apartamento;
-import br.com.eloaca.condominio.service.ApartamentoService;
+import br.com.eloaca.condominio.entity.Condominio;
+import br.com.eloaca.condominio.service.CondominioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,37 +19,43 @@ import java.util.Optional;
 
 @SuppressWarnings("ALL")
 @RestController
-@RequestMapping("/api/condominio/apartamento")
+@RequestMapping("/api/condominio/condominio")
 @RequiredArgsConstructor
-public class ApartamentoController {
+public class CondominioController {
 
-    private final ApartamentoService service;
+    private final CondominioService service;
 
     @PostMapping("/novo")
     @ResponseStatus(HttpStatus.CREATED)
-    public Apartamento novo(@RequestBody Apartamento apartamento){
-        return service.salvarApartamento(apartamento);
+    public Condominio novo(@RequestBody Condominio condominio){
+        return service.salvarCondominio(condominio);
     }
 
     @GetMapping("/buscarID/{id}")
-    public Optional<Apartamento> buscar(@PathVariable Long id){
-        return service.buscarApartamento(id);
+    public Optional<Condominio> buscar(@PathVariable Long id){
+        return service.buscarCondominio(id);
     }
 
     @DeleteMapping("/excluir/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deletar(@PathVariable Long id){
-        service.excluirApartamento(id);
+        service.excluirCondominio(id);
     }
 
     @GetMapping("/buscarTodos")
     public List buscarTodos(){
-        return service.buscarTodosApartamento();
+        return service.buscarTodosCondominio();
     }
 
-    @GetMapping("/buscarBlocoNumero/{bloco}/{numero}")
-    public List buscarNumero(@PathVariable String bloco, @PathVariable String numero){
-        return service.buscarPeloBlocoENumero(bloco, numero);
+    @GetMapping("/buscarNome/{nome}")
+    public Condominio buscarNome(@PathVariable String nome){
+        return service.buscarCondominioPorNome(nome);
+    }
+
+    @PostMapping("/buscarCondominioApartamento/")
+    @ResponseStatus(HttpStatus.FOUND)
+    public Condominio buscarCondominioApartamento(@RequestBody Apartamento apartamento){
+        return service.buscarCondominioPorApartamento(apartamento);
     }
 
 }

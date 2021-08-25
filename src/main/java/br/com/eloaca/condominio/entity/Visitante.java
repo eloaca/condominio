@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,7 +25,7 @@ public class Visitante implements Serializable {
     private static final long serialVersionUID = 1410097744521802167L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
@@ -33,9 +34,9 @@ public class Visitante implements Serializable {
 
     private LocalDateTime saida;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Documento> documento;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Apartamento> apartamento;
 }

@@ -26,7 +26,6 @@ As tecnologias usadas nessa API:
 - [Spring Data] - CRUD Básico
 - [H2] - Banco de dados em memória 
 - [MariaDB] - Banco de dados (apenas localhost)
-- [Express] - fast node.js network app framework [@tjholowaychuk]
 - [Maven] - Controle de dependências
 - [TestNG / EasyMock] - Testes Unitários
 - [Jacoco/Sonar] - Relatório de Testes
